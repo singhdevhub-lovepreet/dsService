@@ -11,7 +11,7 @@ messageService = MessageService()
 def handle_message():
     message = request.json.get('message')
     result = messageService.process_message(message)
-    return jsonify({'result': result})
+    return jsonify(result)
 
 @app.route('/', methods=['GET'])
 def handle_get():

@@ -8,6 +8,6 @@ class MessageService:
     
     def process_message(self, message):
         if self.messageUtil.isBankSms(message):
-            return self.llmService(message)
+            return self.llmService.runLLM(message)
         else:
             return None
