@@ -4,7 +4,7 @@ from .service.messageService import MessageService
 from kafka import KafkaProducer
 import json
 import os
-
+import jsonpickle
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -22,11 +22,8 @@ producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers,
 def handle_message():
     message = request.json.get('message')
     result = messageService.process_message(message)
-    serialized_result = result.json()
-
-    # Send the serialized result to the Kafka topic
+    serialized_result = result.serialize()
     producer.send('expense_service', serialized_result)
-
     return jsonify(result)
 
 @app.route('/', methods=['GET'])

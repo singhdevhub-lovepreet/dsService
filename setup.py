@@ -11,6 +11,7 @@ install_requires = [
     'backcall==0.2.0',
     'beautifulsoup4==4.12.3',
     'bleach==6.1.0',
+    'jsonpickle==3.0.4',
     'blinker==1.7.0',
     'certifi==2024.2.2',
     'charset-normalizer==3.3.2',
