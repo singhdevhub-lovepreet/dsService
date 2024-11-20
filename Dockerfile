@@ -1,4 +1,4 @@
-FROM python:3.11.4
+FROM --platform=linux/amd64 python:3.11.4
 WORKDIR /app
 
 # Copy the distribution package
